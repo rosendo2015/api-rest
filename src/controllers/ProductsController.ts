@@ -5,9 +5,9 @@ import { z } from "zod"
 class ProductsController {
 
     index(request: Request, response: Response) {
-        const { pag, limit } = request.query
+        const { name, price } = request.query
         const { id } = request.params
-        response.send(`pag ${pag} de ${limit} UserID: ${id}`)
+        response.send({ id, name, price })
     }
     create(request: Request, response: Response) {
         const bodySchema = z.object({
